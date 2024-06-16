@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      h2 {
+        font-size: 1.3rem;
+        color: hsl(241, 100%, 89%);
+      }
+      body {
+        font-size: 18px;
+        font-family: Hanken Grotesk, sans-serif;
+        color: white;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: hsla(241, 72%, 46%, 0.01);
+        text-align: center;
+      }
+
+      .rectangle {
+        width: 300px;
+        height: 380px;
+        border-radius: 5%;
+      }
+      .first {
+        background-color: hsl(252, 100%, 67%);
+      }
+      .second {
+        background-color: white;
+      }
+      .first > h1 {
+        margin-bottom: 20px;
+        padding-bottom: 0px;
+      }
+      .circle {
+        background: linear-gradient(to bottom, hsla(256, 72%, 46%, 1), hsla(256, 72%, 46%, 0.2)); ;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0px 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .subtitle {
+        font-weight: 800;
+      }
+      h2 {
+        padding-top: 10px;
+        font-weight: 700;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        height: 28px;
+        margin-top: 10px;
+      }
+      .describe {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .result {
+        margin-top: 20px;
+        color: hsl(241, 100%, 89%);
+      }
+      .summary {
+        text-align: start;
+        margin-left: 40px;
+        margin-bottom: 15px;
+        color: black;
+      }
+      .scores {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .reaction {
+        background-color: hsla(0, 100%, 67%, 0.05);
+      }
+
+      .memory {
+        background-color: hsla(39, 100%, 56%, 0.05);
+      }
+
+      .verbal {
+        background-color: hsla(166, 100%, 37%, 0.05);
+      }
+
+      .visual {
+        background-color: hsla(234, 85%, 45%, 0.05);
+      }
+      .score {
+        display: flex;
+        margin: 5px 40px;
+        height: 35px;
+        align-items: center;
+        border-radius: 10px;
+        font-size: 15px;
+      }
+      .feature {
+        flex-grow: 1;
+        text-align: left;
+      }
+
+      .score img {
+        margin-left: 5px;
+        margin-right: 8px;
+      }
+      .score span {
+        margin-right: 5px;
+      }
+
+      .button {
+        display: flex;
+        margin-top: 30px;
+        border-radius: 20px;
+        height: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(224, 30%, 27%);
+        color: white;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .button:hover {
+        cursor: pointer;
+        background-color: hsla(241, 81%, 54%, 0.7);
+      }
+
+      .score > p {
+        font-weight: 700;
+      }
+      .reaction > .feature {
+        color: hsl(0, 100%, 67%);
+      }
+
+      .memory > .feature {
+        color: hsl(39, 100%, 56%);
+      }
+
+      .verbal .feature {
+        color: hsl(166, 100%, 37%);
+      }
+
+      .visual .feature {
+        color: hsl(234, 85%, 45%);
+      }
+
+      .circle p {
+        color: hsl(241, 100%, 89%);
+      }
+
+      .circle span {
+        font-weight: 800;
+        font-size: 55px;
+        color: white;
+      }
+
+      .value {
+        color: black;
+      }
+      p > span {
+        font-weight: 500;
+        color: hsl(241, 100%, 89%);
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      @media (max-width: 375px) {
+        .container {
+          flex-direction: column;
+          height: 100vh;
+        }
+
+        .summary {
+          margin-top: 1px;
+          margin-bottom: 10px;
+          margin-left: 15px;
+        }
+        .score{
+          margin-left: 15px;
+        }
+        .result {
+          font-size: 15px;
+        }
+        .button {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="rectangle first">
+        <h2>Your Result</h2>
+        <div class="circle">
+          <p>
+            <span>76</span><br />
+            of 100
+          </p>
+        </div>
+        <div class="describe">
+          <p class="title">Great</p>
+          <p class="result">
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+      </div>
+      <div class="rectangle second">
+        <h2 class="summary">Summary</h2>
+        <div class="scores">
+          <div class="score reaction">
+            <img src="assets/images/icon-reaction.svg" alt="icon" />
+            <p class="feature">Reaction</p>
+            <p class="value">80 <span>/ 100</span></p>
+          </div>
+          <div class="score memory">
+            <img src="assets/images/icon-memory.svg" alt="icon" />
+
+            <p class="feature">Memory</p>
+            <p class="value">90 <span>/ 100</span></p>
+          </div>
+          <div class="score verbal">
+            <img src="assets/images/icon-verbal.svg" alt="icon" />
+            <p class="feature">Verbal</p>
+            <p class="value">61 <span>/ 100</span></p>
+          </div>
+          <div class="score visual">
+            <img src="assets/images/icon-visual.svg" alt="icon" />
+            <p class="feature">Visual</p>
+            <p class="value">71 <span>/ 100</span></p>
+          </div>
+        </div>
+
+        <a href="wp.pl"><div class="button">Continue</div></a>
+      </div>
+    </div>
+  </body>
+</html>
